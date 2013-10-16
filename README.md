@@ -23,7 +23,7 @@ R CMD BATCH extract_TAXID.R log1.txt
 ```
 TAXID.txt、TAXID_TAXNAME.txt(中身が先ほどから一部変更)、log1.txt（ログファイル）というファイルが生成される。
 
-3. NCBI Taxonomyにアクセスし、TAXID.txtをもとに、Taxonomy Nameをダウンロードする。
+3. Ensemblにアクセスし、TAXID.txtをもとに、Taxonomy Nameをダウンロードする。
 ```perl
 perl download.pl
 ```
