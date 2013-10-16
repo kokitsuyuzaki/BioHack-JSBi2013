@@ -1,0 +1,90 @@
+
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R は、自由なソフトウェアであり、「完全に無保証」です。 
+一定の条件に従えば、自由にこれを再配布することができます。 
+配布条件の詳細に関しては、'license()' あるいは 'licence()' と入力してください。 
+
+R は多くの貢献者による共同プロジェクトです。 
+詳しくは 'contributors()' と入力してください。 
+また、R や R のパッケージを出版物で引用する際の形式については 
+'citation()' と入力してください。 
+
+'demo()' と入力すればデモをみることができます。 
+'help()' とすればオンラインヘルプが出ます。 
+'help.start()' で HTML ブラウザによるヘルプがみられます。 
+'q()' と入力すれば R を終了します。 
+
+> library(wordcloud)
+ 要求されたパッケージ Rcpp をロード中です 
+ 要求されたパッケージ RColorBrewer をロード中です 
+> 
+> data1 <- as.character(read.table("../TABLE.txt", sep="|")[,3])
+> 
+> png("tagcloud_symbol.png", width=400,height=400)
+> wordcloud(data1, min.freq=1)
+Loading required package: tm
+ 警告メッセージ: 
+1: In wordcloud(data1, min.freq = 1) :
+  sept10 could not be fit on page. It will not be plotted.
+2: In wordcloud(data1, min.freq = 1) :
+  sept9 could not be fit on page. It will not be plotted.
+3: In wordcloud(data1, min.freq = 1) :
+  sept2 could not be fit on page. It will not be plotted.
+4: In wordcloud(data1, min.freq = 1) :
+  march5 could not be fit on page. It will not be plotted.
+> dev.off()
+null device 
+          1 
+> 
+> jpeg("tagcloud_symbol.jpeg", width=400,height=400)
+> wordcloud(data1, min.freq=1)
+ 警告メッセージ: 
+1: In wordcloud(data1, min.freq = 1) :
+  sept10 could not be fit on page. It will not be plotted.
+2: In wordcloud(data1, min.freq = 1) :
+  sept5 could not be fit on page. It will not be plotted.
+3: In wordcloud(data1, min.freq = 1) :
+  march8 could not be fit on page. It will not be plotted.
+4: In wordcloud(data1, min.freq = 1) :
+  sept3 could not be fit on page. It will not be plotted.
+> dev.off()
+null device 
+          1 
+> 
+> postscript(
++   file="./tagcloud_symbol.eps", width = 4, height = 4,
++   horizontal = FALSE, onefile = FALSE, paper = "special",
++   family="Times"
++ )
+> wordcloud(data1, min.freq=1)
+ 14 件の警告がありました (警告を見るには warnings() を使って下さい) 
+> dev.off()
+null device 
+          1 
+> 
+> 
+> # data2 <- as.character(read.table("../TABLE.txt", sep="|")[,2])
+> # data2 <- gsub(" ", "", data2)
+> 
+> # png("tagcloud_org.png", width=400,height=400)
+> # wordcloud(data2, min.freq=1)
+> # dev.off()
+> 
+> # jpeg("tagcloud_org.jpeg", width=400,height=400)
+> # wordcloud(data2, min.freq=1)
+> # dev.off()
+> 
+> # postscript(
+> #   file="./tagcloud_org.eps", width = 4, height = 4,
+> #   horizontal = FALSE, onefile = FALSE, paper = "special",
+> #   family="Times"
+> # )
+> # wordcloud(data2, min.freq=1)
+> # dev.off()
+> 
+> proc.time()
+   ユーザ   システム       経過  
+    19.044      6.322     16.890 
