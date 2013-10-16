@@ -5,23 +5,23 @@
 
 ![my image](Figure_schema.png)
 
-gene_infoは1.42GBあるファイルなので、GitHub上には保存していない（別途ダウンロードが必要）
+### データ解析手順
+0. まず、NCBIのFTPサーバにある、gene_infoというファイルをダウンロードする(1.42GBあって重いので、Github上には保存していない)
 
 ftp://ftp.ncbi.nih.gov/gene//DATA/gene_info.gz
 
-### データ解析手順
-1. まずgene_infoのうち1,3列目だけ切り出す
+1. gene_infoのうち1,3列目だけ切り出す
 ```
 ./extract_TAXID_GENESYMBOL.sh
 ```
-TAXID_GENESYMBOL.txtというファイル（1列目はTaxonomy ID、2列目はGene Symbol）が生成される。ただし、2列目に一部NEWENTRYという関係ない文字列が含まれている
+TAXID_GENESYMBOL.txtというファイル（1列目はTaxonomy ID、2列目はGene Symbol）が生成される。ただし、2列目の一部にNEWENTRYという関係ない文字列が含まれている
 
 
-2. TAXID_GENESYMBOL.txtのうち、NEWENTRYがある列を削除する。また、TAXIDだけ別途抽出する
+2. TAXID_GENESYMBOL.txtのうち、NEWENTRYがある行を削除する。また、Taxonomy IDだけ別途抽出する
 ```r
 R CMD BATCH extract_TAXID.R log1.txt
 ```
-TAXID.txt、TAXID_TAXNAME.txt(NEWENTRYが無い行だけ抽出)、log1.txt（ログファイル）というファイルが生成される。
+TAXID.txt(Taxonomy ID)、TAXID_TAXNAME.txt(NEWENTRYが無い行だけ抽出)、log1.txt（ログファイル）というファイルが生成される。
 
 
 3. TAXID.txtに記述されたTAXIDをもとに、Ensemblにアクセスし、Taxonomy Nameをダウンロードする。
@@ -31,7 +31,7 @@ perl download.pl
 TAXID_TAXNAME.txtというファイル（1列目がTaxonomy ID、2列目がTaxonomy Name）が生成される
 
 
-4. 最後に、TAXID_GENESYMBOL.txtとTAXID_TAXNAME.txtを、同じTAXID同士まとめる
+4. 最後に、TAXID_GENESYMBOL.txtとTAXID_TAXNAME.txtを、同じTAXID同士でマージする
 ```r
 R CMD BATCH make_table.R log2.txt
 ```
