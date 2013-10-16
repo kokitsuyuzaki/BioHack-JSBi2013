@@ -3,7 +3,7 @@
 
 ### Taxonomy ID, Taxonomy Name, Gene Symbolの対応関係をまとめるパイプライン
 
-![my image](Figure.png)
+![my image](Figure_schema.png)
 
 gene_infoは1.42GBあるファイルなので、GitHub上には保存していない（別途ダウンロードが必要）
 
