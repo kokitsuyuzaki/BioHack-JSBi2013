@@ -16,17 +16,20 @@ ftp://ftp.ncbi.nih.gov/gene//DATA/gene_info.gz
 ```
 TAXID_GENESYMBOL.txtというファイル（1列目はTaxonomy ID、2列目はGene Symbol）が生成される。ただし、2列目に一部NEWENTRYという関係ない文字列が含まれている
 
+
 2. TAXID_GENESYMBOL.txtのうち、NEWENTRYがある列を削除する。また、TAXIDだけ別途抽出する
 ```r
 R CMD BATCH extract_TAXID.R log1.txt
 ```
 TAXID.txt、TAXID_TAXNAME.txt(NEWENTRYが無い行だけ抽出)、log1.txt（ログファイル）というファイルが生成される。
 
+
 3. TAXID.txtに記述されたTAXIDをもとに、Ensemblにアクセスし、Taxonomy Nameをダウンロードする。
 ```perl
 perl download.pl
 ```
 TAXID_TAXNAME.txtというファイル（1列目がTaxonomy ID、2列目がTaxonomy Name）が生成される
+
 
 4. 最後に、TAXID_GENESYMBOL.txtとTAXID_TAXNAME.txtを、同じTAXID同士まとめる
 ```r
