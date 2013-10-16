@@ -42,8 +42,9 @@ TABLE.txt、log2.txt(ログファイル)、Dictionary.txt(今回考慮した誤�
 1. Rのtagcloudパッケージを利用して、検出頻度が高かった誤変換されるGene Symbolを強調する図を作成
 ```
 cd TagCloud
-R CMD BATCH tagcloud.R
+R CMD BATCH tagcloud.R log3.txt
 cd ..
 ```
+tagcloud_symbol.jpeg, tagcloud_symbol.png, tagcloud_symbol.eps等画像ファイルが生成される
 
 2. Cytoscapeを利用して、Taxonomy Name - Gene Symbolの共起ネットワークを作成
