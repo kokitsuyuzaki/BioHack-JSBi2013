@@ -1,7 +1,7 @@
-#「BioHack@JSBi2013」で使用したソースコード
+##「BioHack@JSBi2013」で使用したソースコード
 =======
 
-# Taxonomy ID, Taxonomy Name, and Gene Symbolの対応関係をまとめるパイプライン
+## Taxonomy ID, Taxonomy Name, and Gene Symbolの対応関係をまとめるパイプライン
 
 ![my image](Figure.png)
 
