@@ -6,9 +6,7 @@
 ![my image](Figure_schema.png)
 
 ### データ解析手順
-1. まず、NCBIのFTPサーバにある、gene_infoというファイルをダウンロードする(1.42GBあって重いので、Github上には保存していない)
-
-ftp://ftp.ncbi.nih.gov/gene//DATA/gene_info.gz
+1. まず、NCBIのFTPサーバにある、gene_infoというファイルをダウンロードする (ftp://ftp.ncbi.nih.gov/gene//DATA/gene_info.gz)
 
 2. gene_infoのうち1,3列目だけ切り出す
 ```
