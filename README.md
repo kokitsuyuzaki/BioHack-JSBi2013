@@ -1,6 +1,7 @@
 ###「BioHack@JSBi2013」で使用したソースコード
 
-     外部サイト : https://github.com/dbcls/jsbi2013/wiki/BioHack
+https://github.com/dbcls/jsbi2013/wiki/BioHack
+
 =======
 
 ### Taxonomy ID, Taxonomy Name, Gene Symbolの対応関係をまとめるパイプライン
